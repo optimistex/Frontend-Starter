@@ -9,9 +9,9 @@ import { Product } from '@fe-features/product/models/product';
   styleUrls: ['./showcase.component.scss'],
 })
 export class ShowcaseComponent {
-  public products$: Observable<Product[]>;
+  public productList$: Observable<Product[]>;
 
   constructor(private productService: ProductService) {
-    this.products$ = this.productService.getList({ page: 2, limit: 10 });
+    this.productList$ = this.productService.getList({ page: 2, limit: 10 });
   }
 }
