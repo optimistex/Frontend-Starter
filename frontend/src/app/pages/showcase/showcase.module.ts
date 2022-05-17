@@ -5,6 +5,7 @@ import { ProductModule } from '@fe-features/product/product.module';
 import { ShowcaseRoutingModule } from './showcase-routing.module';
 import { ShowcaseComponent } from './showcase.component';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { PaginatorModule } from '@fe-custom-ui/paginator/paginator.module';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
     ShowcaseRoutingModule,
     ProductModule,
     PriceModule,
+    PaginatorModule,
   ],
   declarations: [
     ShowcaseComponent,

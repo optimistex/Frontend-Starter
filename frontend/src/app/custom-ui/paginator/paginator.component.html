@@ -1,0 +1,3 @@
+<span class="arrow" (click)="page=page-1; pageChanged.emit(page)" [class.arrow--disabled]="page <= 1"></span>
+<span class="no-select">{{ page }}</span>
+<span class="arrow arrow--right" (click)="page=page+1; pageChanged.emit(page)"></span>

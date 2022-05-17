@@ -1,1 +1,2 @@
 <app-product-item [product]="product" *ngFor="let product of productList$ | async"></app-product-item>
+<app-paginator (pageChanged)="page$.next($event)"></app-paginator>
