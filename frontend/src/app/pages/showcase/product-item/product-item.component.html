@@ -1,7 +1,5 @@
 <div class="product">
   <img class="product__image" [src]="product.defaultImage" [alt]="product.name">
-  <div class="product__info">
-    <span>{{ product.name }}</span>
-    <app-price [data]="product"></app-price>
-  </div>
+  <app-price [data]="product"></app-price>
+  <span>{{ product.name }}</span>
 </div>
