@@ -1,10 +1,12 @@
 import { HttpParams } from '@angular/common/http';
 
-export function buildHttpParams(params?: Record<string, string | ReadonlyArray<string>>): HttpParams | undefined {
+export type BuildParams = Record<string, string | number | boolean | ReadonlyArray<string | number | boolean>>;
+
+export function buildHttpParams(params?: BuildParams): HttpParams | undefined {
   if (!params) {
     return undefined;
   }
-  const filteredParams = Object.keys(params).reduce<Record<string, string | ReadonlyArray<string>>>((acc, key) => {
+  const filteredParams = Object.keys(params).reduce<BuildParams>((acc, key) => {
     if (params[key] ?? undefined) {
       acc[key] = params[key];
     }

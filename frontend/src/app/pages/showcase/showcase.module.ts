@@ -6,14 +6,14 @@ import { ShowcaseComponent } from './showcase.component';
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        ShowcaseRoutingModule,
-        ProductModule
-    ],
-    declarations: [
-        ShowcaseComponent
-    ]
+  imports: [
+    CommonModule,
+    ShowcaseRoutingModule,
+    ProductModule,
+  ],
+  declarations: [
+    ShowcaseComponent,
+  ],
 })
 export class ShowcaseModule {
 }

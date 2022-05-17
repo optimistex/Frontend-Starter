@@ -33,7 +33,7 @@ export class NotificationService {
     return source$ => source$.pipe(
       catchError((error: Error) => {
         this.error(message || error.message);
-        return throwError(error);
+        return throwError(() => error);
       })
     );
   }
@@ -42,7 +42,7 @@ export class NotificationService {
     return source$ => source$.pipe(
       catchError((error: HttpErrorResponse) => {
         this.error(error.error?.message || error.message);
-        return throwError(error);
+        return throwError(() => error);
       })
     );
   }

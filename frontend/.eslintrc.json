@@ -15,10 +15,30 @@
         "createDefaultProgram": true
       },
       "extends": [
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "plugins": [
+        "@typescript-eslint/eslint-plugin",
+        "eslint-plugin-deprecation",
+        "eslint-plugin-no-null",
+        "jasmine"
       ],
       "rules": {
+        "jasmine/no-focused-tests": "error",
+        "jasmine/no-disabled-tests": "error",
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -27,14 +47,168 @@
             "style": "camelCase"
           }
         ],
-        "@angular-eslint/component-selector": [
+        "@typescript-eslint/no-empty-function": "error",
+        "@typescript-eslint/consistent-type-assertions": "error",
+        "@typescript-eslint/ban-tslint-comment": "error",
+        "@typescript-eslint/await-thenable": "error",
+        "@typescript-eslint/explicit-member-accessibility": [
           "error",
           {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
+            "accessibility": "explicit",
+            "overrides": {
+              "constructors": "no-public",
+              "accessors": "off"
+            }
           }
-        ]
+        ],
+        "@typescript-eslint/no-for-in-array": "error",
+        "@typescript-eslint/no-namespace": "error",
+        "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_.*$"
+          }
+        ],
+        "@typescript-eslint/no-var-requires": "error",
+        "@typescript-eslint/unbound-method": "off",
+        "arrow-parens": [
+          "error",
+          "as-needed"
+        ],
+        "arrow-body-style": "error",
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "@typescript-eslint/naming-convention": "error",
+        "@typescript-eslint/member-ordering": "off",
+        "eqeqeq": "error",
+        "@typescript-eslint/member-delimiter-style": "error",
+        "space-infix-ops": "error",
+        "@typescript-eslint/no-unused-expressions": [
+          "error",
+          {
+            "allowTernary": true
+          }
+        ],
+        "no-underscore-dangle": [
+          "error",
+          {
+            "allow": [
+              "__simulateChange",
+              "__simulateTouch"
+            ]
+          }
+        ],
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/ban-types": "error",
+        "comma-dangle": [
+          "error",
+          {
+            "objects": "always-multiline",
+            "arrays": "always-multiline",
+            "functions": "never",
+            "imports": "always-multiline"
+          }
+        ],
+        "import/no-extraneous-dependencies": [
+          "off",
+          {
+            "devDependencies": false
+          }
+        ],
+        "import/order": "off",
+        "max-len": [
+          "error",
+          {
+            "code": 160
+          }
+        ],
+        "no-multiple-empty-lines": [
+          "error",
+          {
+            "max": 2
+          }
+        ],
+        "no-null/no-null": "error",
+        "no-template-curly-in-string": "error",
+        "prefer-const": [
+          "error",
+          {
+            "destructuring": "all"
+          }
+        ],
+        "id-blacklist": "error",
+        "object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true,
+            "allowTypedFunctionExpressions": true,
+            "allowHigherOrderFunctions": true,
+            "allowDirectConstAssertionInArrowFunctions": true,
+            "allowConciseArrowFunctionExpressionsStartingWithVoid": false
+          }
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": [
+          "error",
+          {
+            "allowArgumentsExplicitlyTypedAsAny": true,
+            "allowDirectConstAssertionInArrowFunctions": true,
+            "allowedNames": [],
+            "allowHigherOrderFunctions": true,
+            "allowTypedFunctionExpressions": true
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-inferrable-types": [
+          "error",
+          {
+            "ignoreParameters": true
+          }
+        ],
+        "@typescript-eslint/no-empty-interface": "error",
+        "@typescript-eslint/prefer-as-const": "error",
+        "no-console": "error",
+        "quotes": [
+          "error",
+          "single",
+          {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+          }
+        ],
+        "quote-props": [
+          "error",
+          "as-needed"
+        ],
+        "eol-last": [
+          "error",
+          "always"
+        ],
+        "semi": "error",
+        "indent": "off",
+        "@typescript-eslint/indent": [
+          "error",
+          2,
+          {
+            "SwitchCase": 1,
+            "ignoredNodes": ["TSTypeParameterInstantiation", "TSUnionType"],
+            "FunctionDeclaration": {
+              "parameters": "first"
+            },
+            "FunctionExpression": {
+              "parameters": "first"
+            }
+          }
+        ],
+        "deprecation/deprecation": "warn",
+        "keyword-spacing": "error",
+        "space-before-blocks": "error",
+        "arrow-spacing": "error",
+        "no-confusing-arrow": "error"
       }
     },
     {
@@ -44,7 +218,10 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {}
+      "rules": {
+        "@angular-eslint/template/no-negated-async": "error",
+        "@angular-eslint/template/eqeqeq": "error"
+      }
     }
   ]
 }

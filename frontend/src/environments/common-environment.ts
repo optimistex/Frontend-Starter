@@ -1,5 +1,5 @@
 export const commonEnvironmentData = {
-    production: false,
+  production: false,
 
-    hostApi: 'http://localhost:8080',
+  hostApi: 'http://localhost:8080',
 };

@@ -7,18 +7,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        ToastrModule.forRoot(),
-        CoreModule
-    ],
-    providers: [],
-    declarations: [
-        AppComponent
-    ],
-    bootstrap: [AppComponent]
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    CoreModule,
+  ],
+  providers: [],
+  declarations: [
+    AppComponent,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {
 }

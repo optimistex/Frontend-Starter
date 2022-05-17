@@ -1,4 +1,4 @@
 export interface ApiLinks {
-    productGetList: string;
+  productGetList: string;
 }
 

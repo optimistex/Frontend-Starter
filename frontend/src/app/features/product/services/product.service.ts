@@ -5,10 +5,10 @@ import { Product } from '../models/product';
 
 @Injectable()
 export class ProductService {
-    constructor(private apiService: ApiService) {
-    }
+  constructor(private apiService: ApiService) {
+  }
 
-    public getList(): Observable<Product[]> {
-        return this.apiService.get<Product[]>('productGetList');
-    }
+  public getList(parameters: { page: number; limit: number }): Observable<Product[]> {
+    return this.apiService.get<Product[]>('productGetList', { _page: parameters.page, _limit: parameters.limit });
+  }
 }
