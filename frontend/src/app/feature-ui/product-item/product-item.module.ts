@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PriceModule } from '@fe-custom-ui/price/price.module';
+import { PriceModule } from '@fe-core-api/price/price.module';
 import { ProductItemComponent } from './product-item.component';
 
 @NgModule({
