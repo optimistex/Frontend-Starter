@@ -1,7 +1,13 @@
-<div class="product">
+<div class="product" [routerLink]="['/product', product.id]">
   <div class="product__image">
     <img src="{{product.defaultImage}}?{{product.id}}" [alt]="product.name">
   </div>
-  <app-price class="product__price" [data]="product.calculatePrice()"></app-price>
-  <app-highlight [text]="product.name" [search]="search"></app-highlight>
+  <div class="product__info">
+    <img class="product__info-action" src="/assets/icons/shopping-cart-add.svg" alt="Add"
+         (click)="$event.stopPropagation(); cartDataService.addToCart(product.id)">
+    <div>
+      <app-price class="product__price" [data]="product.calculatePrice()"></app-price>
+      <app-highlight [text]="product.name" [search]="search"></app-highlight>
+    </div>
+  </div>
 </div>

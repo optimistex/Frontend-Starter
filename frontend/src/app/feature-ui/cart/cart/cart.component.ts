@@ -1,9 +1,8 @@
-import { map, Observable, shareReplay, switchMap, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Component } from '@angular/core';
 import { Price } from '@fe-core-ui/price/price';
-import { SessionService } from '@fe-core/services/session/session.service';
-import { CartService } from '@fe-feature-api/product/services/cart.service';
 import { CartItem } from '@fe-feature-api/product/models/cart-item';
+import { CartDataService } from '@fe-feature-api/product/services/cart-data.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,14 +13,10 @@ export class CartComponent {
   public cart$: Observable<CartItem[] | undefined>;
   public totalPrice$: Observable<Price>;
 
-  constructor(cartService: CartService, sessionService: SessionService) {
-    const cart$ = sessionService.userSession$.pipe(
-      switchMap(userSession => (userSession.isLoggedIn ? cartService.getUserCart(userSession.id) : of([]))),
-      shareReplay(1)
-    );
-    this.cart$ = cart$.pipe(map(c => (Array.isArray(c) && c.length ? c : undefined)));
+  constructor(cartDataService: CartDataService) {
+    this.cart$ = cartDataService.cart$.pipe(map(cart => (cart.length ? cart : undefined)));
 
-    this.totalPrice$ = cart$.pipe(map(cart => cart.reduce((price, item) => {
+    this.totalPrice$ = cartDataService.cart$.pipe(map(cart => cart.reduce((price, item) => {
       const newPrice = item.product.calculatePrice(item.quantity);
       price.totalPrice += newPrice.totalPrice;
       price.price += newPrice.price;

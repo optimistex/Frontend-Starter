@@ -2,17 +2,35 @@
   padding: 0.5rem;
   border: var(--separate-line);
   border-radius: var(--separate-line-radius);
+  cursor: pointer;
 
   &__image {
     display: flex;
     justify-content: center;
+
+    & img {
+      display: block;
+      width: var(--product-item-width);
+      height: calc(var(--product-item-width) * 480 / 640);
+      margin-bottom: 0.5rem;
+    }
   }
 
-  &__image img {
-    display: block;
-    width: var(--product-item-width);
-    height: calc(var(--product-item-width) * 480 / 640);
-    margin-bottom: 0.5rem;
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__info-action {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    opacity: .7;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &__price {

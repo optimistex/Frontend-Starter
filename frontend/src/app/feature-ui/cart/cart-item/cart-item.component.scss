@@ -9,14 +9,14 @@
   &__remove {
     cursor: pointer;
 
-    & svg {
-      fill: #555;
+    & img {
+      opacity: 0.7;
       width: 1rem;
       height: 1rem;
     }
 
-    &:hover svg {
-      fill: black;
+    &:hover img {
+      opacity: 1;
     }
   }
 }

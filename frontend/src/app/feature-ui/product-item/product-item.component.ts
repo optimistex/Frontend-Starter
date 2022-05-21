@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Product } from '@fe-feature-api/product/models/product';
+import { CartDataService } from '@fe-feature-api/product/services/cart-data.service';
 
 @Component({
   selector: 'app-product-item[product]',
@@ -10,4 +11,7 @@ import { Product } from '@fe-feature-api/product/models/product';
 export class ProductItemComponent {
   @Input() public product!: Product;
   @Input() public search = '';
+
+  constructor(public cartDataService: CartDataService) {
+  }
 }

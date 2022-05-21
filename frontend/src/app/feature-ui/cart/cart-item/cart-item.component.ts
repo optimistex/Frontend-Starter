@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CartItem } from '@fe-feature-api/product/models/cart-item';
-import { CartService } from '@fe-feature-api/product/services/cart.service';
+import { CartDataService } from '@fe-feature-api/product/services/cart-data.service';
 
 @Component({
   selector: 'app-cart-item[cartItem]',
@@ -11,11 +11,6 @@ import { CartService } from '@fe-feature-api/product/services/cart.service';
 export class CartItemComponent {
   @Input() public cartItem!: CartItem;
 
-  constructor(private cartService: CartService) {
-  }
-
-  public deleteCartItem(productId: number): void {
-    console.log('CartItemComponent.deleteCartItem', productId);
-    this.cartService.deleteCartItem(3).subscribe();
+  constructor(public cartDataService: CartDataService) {
   }
 }
