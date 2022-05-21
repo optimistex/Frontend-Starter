@@ -1,10 +1,11 @@
+import { ToastrModule } from 'ngx-toastr';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
+import { LayoutModule } from './layout/layout/layout.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     ToastrModule.forRoot(),
     CoreModule,
+    LayoutModule,
   ],
   providers: [],
   declarations: [
