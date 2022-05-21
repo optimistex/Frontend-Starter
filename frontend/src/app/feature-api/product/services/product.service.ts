@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ApiService } from '@fe-core/services/api/api.service';
 import { Product } from '../models/product';
@@ -14,6 +14,6 @@ export class ProductService {
       ...(parameters.limit ? { _limit: parameters.limit } : {}),
       ...(parameters.id ? { id: parameters.id } : {}),
       ...(parameters.search ? { q: parameters.search } : {}),
-    });
+    }).pipe(map(response => response.map(r => new Product(r))));
   }
 }
