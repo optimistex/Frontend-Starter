@@ -9,4 +9,5 @@ import { Product } from '@fe-feature-api/product/models/product';
 })
 export class ProductItemComponent {
   @Input() public product!: Product;
+  @Input() public search = '';
 }

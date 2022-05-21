@@ -3,5 +3,5 @@
     <img src="{{product.defaultImage}}?{{product.id}}" [alt]="product.name">
   </div>
   <app-price class="product__price" [data]="product.calculatePrice()"></app-price>
-  <span>{{ product.name }}</span>
+  <app-highlight [text]="product.name" [search]="search"></app-highlight>
 </div>

@@ -1,4 +1,5 @@
+<input type="text" [formControl]="searchCtrl">
 <div class="item-list">
-  <app-product-item [product]="product" *ngFor="let product of productList$ | async"></app-product-item>
+  <app-product-item [product]="product" *ngFor="let product of productList$ | async" [search]="searchCtrl.value"></app-product-item>
 </div>
 <app-paginator (pageChanged)="page$.next($event)"></app-paginator>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PaginatorModule } from '@fe-core-ui/paginator/paginator.module';
 import { ProductModule } from '@fe-feature-api/product/product.module';
 import { ProductItemModule } from '@fe-feature-ui/product-item/product-item.module';
@@ -11,6 +12,7 @@ import { ProductListComponent } from './product-list/product-list.component';
   imports: [
     CommonModule,
     ShowcaseRoutingModule,
+    ReactiveFormsModule,
     ProductModule,
     PaginatorModule,
     ProductItemModule,
