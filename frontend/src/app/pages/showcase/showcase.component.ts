@@ -1,6 +1,4 @@
-import { Observable } from 'rxjs';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { CartService } from '@fe-feature-api/product/services/cart.service';
 
 @Component({
   selector: 'app-showcase',
@@ -9,9 +7,4 @@ import { CartService } from '@fe-feature-api/product/services/cart.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShowcaseComponent {
-  public cart$: Observable<unknown>;
-
-  constructor(private cartService: CartService) {
-    this.cart$ = this.cartService.getUserCart(3);
-  }
 }

@@ -1,1 +1,3 @@
-<p>cart-item works!</p>
+{{ cartItem.product.name }}
+{{ cartItem.quantity }}
+<app-price [data]="cartItem.product" [quantity]="cartItem.quantity"></app-price>

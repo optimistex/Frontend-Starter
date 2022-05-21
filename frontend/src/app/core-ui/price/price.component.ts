@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class PriceComponent {
   @Input() public data!: { price: number; discount: number };
+  @Input() public quantity = 1;
 }
