@@ -1,4 +1,34 @@
+.search {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+
+  & input {
+    flex-grow: 1;
+    margin-left: 0.5rem;
+  }
+}
+
+.products-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
 .item-list {
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--product-item-cell-width), 1fr));
+
+  &__item {
+    margin: 0.5rem;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
 }
