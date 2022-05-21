@@ -1,3 +1,5 @@
+import { Price } from '@fe-core-ui/price/price';
+
 export class Product {
   public readonly id: number;
   public readonly name: string;
@@ -15,5 +17,11 @@ export class Product {
     this.images = data?.images ?? [];
     this.price = data?.price ?? 0;
     this.discount = data?.discount ?? 0;
+  }
+
+  public getPrice(quantity: number = 1): Price {
+    const price = this.price * quantity;
+    const totalPrice = price - price * this.discount / 100;
+    return { price, discount: this.discount, totalPrice };
   }
 }

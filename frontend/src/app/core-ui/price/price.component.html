@@ -1,3 +1,3 @@
 <span class="symbol">¥</span>
-<span class="price">{{ data.price * quantity - (data.price * quantity * data.discount / 100) | number:'0.0-2' }}</span>
-<span class="base-price">{{ data.price * quantity | number:'0.0-2' }}</span>
+<span class="price">{{ data.totalPrice | number:'0.0-2' }}</span>
+<span class="base-price">{{ data.price | number:'0.0-2' }}</span>
