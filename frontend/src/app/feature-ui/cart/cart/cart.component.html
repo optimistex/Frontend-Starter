@@ -1,4 +1,10 @@
-<app-cart-item class="cart-item" [cartItem]="cartItem" *ngFor="let cartItem of cart$ | async"></app-cart-item>
-<div class="cart-total">
-  Total: <app-price [data]="totalPrice$ | async"></app-price>
-</div>
+<ng-template #cartIsEmpty>
+  <div class="empty-cart">Cart is Empty</div>
+</ng-template>
+<ng-container *ngIf="cart$ | async as cart; else cartIsEmpty">
+  <app-cart-item class="cart-item" [cartItem]="cartItem" *ngFor="let cartItem of cart"></app-cart-item>
+  <div class="cart-total">
+    Total:
+    <app-price [data]="totalPrice$ | async"></app-price>
+  </div>
+</ng-container>

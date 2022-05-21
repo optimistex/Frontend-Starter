@@ -1,3 +1,10 @@
+.empty-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555555;
+}
+
 .cart-item, .cart-total {
   padding: 0.5rem;
   display: block;
