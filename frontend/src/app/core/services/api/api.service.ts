@@ -31,8 +31,10 @@ export class ApiService {
     return this.httpClient.get<T>(urlStr, { params: buildHttpParams(params) }).pipe(this.rxHandleHttpError());
   }
 
-  public patch<T>(urlKey: keyof ApiLinks, patchData?: unknown): Observable<T> {
-    return this.httpClient.patch<T>(environment.hostApi + this.apiLinks[urlKey], patchData).pipe(this.rxHandleHttpError());
+  public patch<T>(urlKey: keyof ApiLinks | [keyof ApiLinks, Record<string, string>], patchData?: unknown): Observable<T> {
+    const url: utpl.URITemplate = utpl(environment.hostApi + (Array.isArray(urlKey) ? this.apiLinks[urlKey[0]] : this.apiLinks[urlKey]));
+    const urlStr = Array.isArray(urlKey) ? url.fill(urlKey[1]) : url.fillFromObject({});
+    return this.httpClient.patch<T>(urlStr, patchData).pipe(this.rxHandleHttpError());
   }
 
   private rxHandleHttpError<T>(): UnaryFunction<Observable<T>, Observable<T>> {
