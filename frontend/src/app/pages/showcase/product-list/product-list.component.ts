@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable, switchMap, debounceTime, startWith, combineLatest } from 'rxjs';
+import { BehaviorSubject, Observable, switchMap, debounceTime, startWith, combineLatest, map } from 'rxjs';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Product } from '@fe-feature-api/product/models/product';
@@ -10,7 +10,7 @@ import { ProductService } from '@fe-feature-api/product/services/product.service
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent {
-  public productList$: Observable<Product[]>;
+  public productList$: Observable<Product[] | undefined>;
   public page$ = new BehaviorSubject<number>(1);
   public searchCtrl = new FormControl('');
 
@@ -18,7 +18,8 @@ export class ProductListComponent {
     const search$: Observable<string> = this.searchCtrl.valueChanges.pipe(startWith(this.searchCtrl.value), debounceTime(500));
 
     this.productList$ = combineLatest([this.page$, search$]).pipe(
-      switchMap(([page, search]) => this.productService.getList({ page, limit: 10, search }))
+      switchMap(([page, search]) => this.productService.getList({ page, limit: 10, search })),
+      map(productList => (Array.isArray(productList) && productList.length ? productList : undefined))
     );
   }
 }

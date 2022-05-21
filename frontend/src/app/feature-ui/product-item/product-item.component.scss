@@ -1,5 +1,4 @@
 .product {
-  margin: 0.5rem;
   padding: 0.5rem;
   border: 1px solid #f5f5f5;
   border-radius: 5px;
@@ -12,6 +11,7 @@
   &__image img {
     display: block;
     width: var(--product-item-width);
+    height: calc(var(--product-item-width) * 480 / 640);
     margin-bottom: 0.5rem;
   }
 

@@ -1,5 +1,15 @@
-<input type="text" [formControl]="searchCtrl">
-<div class="item-list">
-  <app-product-item [product]="product" *ngFor="let product of productList$ | async" [search]="searchCtrl.value"></app-product-item>
+<label class="search">
+  Search
+  <input type="text" [formControl]="searchCtrl">
+</label>
+<ng-template #notFound>
+  <div class="products-not-found">
+    Products not found
+  </div>
+</ng-template>
+<div class="item-list" *ngIf="productList$ | async as productList; else notFound">
+  <app-product-item class="item-list__item" [product]="product" *ngFor="let product of productList" [search]="searchCtrl.value"></app-product-item>
 </div>
-<app-paginator (pageChanged)="page$.next($event)"></app-paginator>
+<div class="pagination">
+  <app-paginator (pageChanged)="page$.next($event)"></app-paginator>
+</div>
