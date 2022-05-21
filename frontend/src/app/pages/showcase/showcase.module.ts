@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PriceModule } from '@fe-custom-ui/price/price.module';
+import { PaginatorModule } from '@fe-custom-ui/paginator/paginator.module';
 import { ProductModule } from '@fe-feature-api/product/product.module';
+import { ProductItemModule } from '@fe-feature-ui/product-item/product-item.module';
 import { ShowcaseRoutingModule } from './showcase-routing.module';
 import { ShowcaseComponent } from './showcase.component';
-import { ProductItemComponent } from './product-item/product-item.component';
-import { PaginatorModule } from '@fe-custom-ui/paginator/paginator.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ShowcaseRoutingModule,
     ProductModule,
-    PriceModule,
     PaginatorModule,
+    ProductItemModule,
   ],
   declarations: [
     ShowcaseComponent,
-    ProductItemComponent,
   ],
 })
 export class ShowcaseModule {

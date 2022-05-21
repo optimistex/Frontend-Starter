@@ -32,6 +32,9 @@
       "@fe-feature-api/*": [
         "src/app/feature-api/*"
       ],
+      "@fe-feature-ui/*": [
+        "src/app/feature-ui/*"
+      ],
       "@fe-environment": [
         "src/environments/environment",
       ],
