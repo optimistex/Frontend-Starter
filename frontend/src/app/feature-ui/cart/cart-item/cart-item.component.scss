@@ -1,0 +1,23 @@
+.cart-item {
+  display: flex;
+  align-items: center;
+
+  &__info {
+    flex-grow: 1;
+  }
+
+  &__remove {
+    cursor: pointer;
+
+    & svg {
+      fill: #555;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &:hover svg {
+      fill: black;
+    }
+  }
+}
+

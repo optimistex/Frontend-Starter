@@ -9,4 +9,8 @@ import { CartItem } from '@fe-feature-api/product/models/cart-item';
 })
 export class CartItemComponent {
   @Input() public cartItem!: CartItem;
+
+  public deleteCartItem(productId: number): void {
+    console.log('CartItemComponent.deleteCartItem', productId);
+  }
 }
