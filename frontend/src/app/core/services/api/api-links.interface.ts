@@ -1,6 +1,8 @@
 export interface ApiLinks {
-  productGetList: string;
+  productListApi: string;
 
-  cartGetItem: string;
+  cartItemApi: string;
+
+  userListApi: string;
 }
 

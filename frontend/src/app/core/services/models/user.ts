@@ -50,4 +50,8 @@ export class User {
     this.role = data?.role ?? 'GUEST';
     this.orders = data?.orders ?? [];
   }
+
+  public get isAdmin(): boolean {
+    return this.role === 'ADMIN';
+  }
 }

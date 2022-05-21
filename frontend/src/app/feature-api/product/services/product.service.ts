@@ -9,7 +9,7 @@ export class ProductService {
   }
 
   public getList(parameters: { page?: number; limit?: number; id?: number[]; search?: string }): Observable<Product[]> {
-    return this.apiService.get<Product[]>('productGetList', {
+    return this.apiService.get<Product[]>('productListApi', {
       ...(parameters.page ? { _page: parameters.page } : {}),
       ...(parameters.limit ? { _limit: parameters.limit } : {}),
       ...(parameters.id ? { id: parameters.id } : {}),

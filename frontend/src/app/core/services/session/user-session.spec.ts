@@ -3,13 +3,13 @@ import { UserSession } from './user-session';
 describe('UserSession', () => {
   it('should create empty', () => {
     const userSession = new UserSession();
-    expect(userSession.isLoggedIn()).toBe(false);
+    expect(userSession.isLoggedIn).toBe(false);
   });
 
   it('should create with data', () => {
     const userSession = new UserSession({ id: 10, role: 'CUSTOMER' });
     expect(userSession.id).toBe(10);
-    expect(userSession.isLoggedIn()).toBe(true);
+    expect(userSession.isLoggedIn).toBe(true);
   });
 
   describe('UserSession.isAdmin', () => {

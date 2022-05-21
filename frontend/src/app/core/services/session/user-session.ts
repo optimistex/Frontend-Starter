@@ -17,11 +17,7 @@ export class UserSession extends User {
     return JSON.stringify(this);
   }
 
-  public isLoggedIn(): boolean {
+  public get isLoggedIn(): boolean {
     return this.role !== 'GUEST';
-  }
-
-  public get isAdmin(): boolean {
-    return this.role === 'ADMIN';
   }
 }
