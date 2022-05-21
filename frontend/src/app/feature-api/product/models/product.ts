@@ -1,5 +1,9 @@
 import { Price } from '@fe-core-ui/price/price';
 
+function makeUrl(originUrl: string | undefined, id: number, type: string | number): string {
+  return originUrl ? `${originUrl}?id=${id}&type=${type}` : '';
+}
+
 export class Product {
   public readonly id: number;
   public readonly name: string;
@@ -13,8 +17,8 @@ export class Product {
     this.id = data?.id ?? 0;
     this.name = data?.name ?? '';
     this.description = data?.description ?? '';
-    this.defaultImage = data?.defaultImage ?? '';
-    this.images = data?.images ?? [];
+    this.defaultImage = makeUrl(data?.defaultImage, this.id, 'default');
+    this.images = data?.images?.map((url, idx) => makeUrl(url, this.id, idx)) ?? [];
     this.price = data?.price ?? 0;
     this.discount = data?.discount ?? 0;
   }

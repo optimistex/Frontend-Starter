@@ -1,6 +1,6 @@
 <div class="product" [routerLink]="['/product', product.id]">
   <div class="product__image">
-    <img src="{{product.defaultImage}}?{{product.id}}" [alt]="product.name">
+    <img [src]="product.defaultImage" [alt]="product.name">
   </div>
   <div class="product__info">
     <img class="product__info-action" src="/assets/icons/shopping-cart-add.svg" alt="Add"
