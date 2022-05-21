@@ -1,4 +1,8 @@
+import { map, Observable, filter, switchMap } from 'rxjs';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from '@fe-feature-api/product/models/product';
+import { ProductService } from '@fe-feature-api/product/services/product.service';
 
 @Component({
   selector: 'app-product-page',
@@ -6,4 +10,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-page.component.scss'],
 })
 export class ProductPageComponent {
+  public product$: Observable<Product>;
+
+  constructor(route: ActivatedRoute, productService: ProductService) {
+    this.product$ = route.paramMap.pipe(
+      map(paramMap => Number(paramMap.get('productId'))),
+      filter(productId => !!productId),
+      switchMap(productId => productService.getItem(productId))
+    );
+  }
 }
