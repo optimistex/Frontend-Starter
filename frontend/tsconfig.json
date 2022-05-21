@@ -26,8 +26,7 @@
       "@fe-core/*": [
         "src/app/core/*"
       ],
-      "@fe-core-api/*": [
-        "src/app/custom-ui/*",
+      "@fe-core-ui/*": [
         "src/app/core-ui/*"
       ],
       "@fe-feature-api/*": [
