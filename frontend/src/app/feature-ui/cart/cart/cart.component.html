@@ -1,1 +1,4 @@
-<app-cart-item [cartItem]="cartItem" *ngFor="let cartItem of cart$ | async"></app-cart-item>
+<app-cart-item class="cart-item" [cartItem]="cartItem" *ngFor="let cartItem of cart$ | async"></app-cart-item>
+<div class="cart-total">
+  Total: <app-price [data]="totalPrice$ | async"></app-price>
+</div>

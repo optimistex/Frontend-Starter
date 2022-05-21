@@ -19,9 +19,9 @@ export class Product {
     this.discount = data?.discount ?? 0;
   }
 
-  public getPrice(quantity: number = 1): Price {
+  public calculatePrice(quantity: number = 1): Price {
     const price = this.price * quantity;
     const totalPrice = price - price * this.discount / 100;
-    return { price, discount: this.discount, totalPrice };
+    return { price, totalPrice };
   }
 }

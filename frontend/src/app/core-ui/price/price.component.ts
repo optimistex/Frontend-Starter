@@ -7,5 +7,5 @@ import { Price } from './price';
   styleUrls: ['./price.component.scss'],
 })
 export class PriceComponent {
-  @Input() public data!: Price;
+  @Input() public data?: Price | null;
 }

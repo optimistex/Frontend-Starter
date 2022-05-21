@@ -2,6 +2,6 @@
   <div class="product__image">
     <img src="{{product.defaultImage}}?{{product.id}}" [alt]="product.name">
   </div>
-  <app-price [data]="product.getPrice()"></app-price>
+  <app-price class="product__price" [data]="product.calculatePrice()"></app-price>
   <span>{{ product.name }}</span>
 </div>
