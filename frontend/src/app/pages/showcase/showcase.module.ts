@@ -5,6 +5,7 @@ import { ProductModule } from '@fe-feature-api/product/product.module';
 import { ProductItemModule } from '@fe-feature-ui/product-item/product-item.module';
 import { ShowcaseRoutingModule } from './showcase-routing.module';
 import { ShowcaseComponent } from './showcase.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ShowcaseComponent } from './showcase.component';
   ],
   declarations: [
     ShowcaseComponent,
+    ProductListComponent,
   ],
 })
 export class ShowcaseModule {
