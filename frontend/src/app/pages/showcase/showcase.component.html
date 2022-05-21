@@ -1,4 +1,5 @@
 <div class="item-list">
   <app-product-item [product]="product" *ngFor="let product of productList$ | async"></app-product-item>
 </div>
+{{ cart$ | async | json }}
 <app-paginator (pageChanged)="page$.next($event)"></app-paginator>
