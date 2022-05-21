@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '@fe-features/product/models/product';
+import { Product } from '@fe-feature-api/product/models/product';
 
 @Component({
   selector: 'app-product-item[product]',

@@ -1,7 +1,7 @@
 import { Observable, BehaviorSubject, switchMap } from 'rxjs';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ProductService } from '@fe-features/product/services/product.service';
-import { Product } from '@fe-features/product/models/product';
+import { ProductService } from '@fe-feature-api/product/services/product.service';
+import { Product } from '@fe-feature-api/product/models/product';
 
 @Component({
   selector: 'app-showcase',

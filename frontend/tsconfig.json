@@ -29,8 +29,8 @@
       "@fe-custom-ui/*": [
         "src/app/custom-ui/*"
       ],
-      "@fe-features/*": [
-        "src/app/features/*"
+      "@fe-feature-api/*": [
+        "src/app/feature-api/*"
       ],
       "@fe-environment": [
         "src/environments/environment",
