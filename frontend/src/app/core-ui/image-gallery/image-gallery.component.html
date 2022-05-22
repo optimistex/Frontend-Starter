@@ -1,6 +1,6 @@
-<img #previewImg class="image-view" [src]="data.defaultImage" alt="Default image">
+<img #previewImg class="image-view" [src]="data.srcDefaultImage" alt="Default image">
 <div class="button-list">
-  <img class="button-list__button" [src]="data.defaultImage" alt="" (click)="previewImg.src = data.defaultImage">
-  <img class="button-list__button" [src]="imgUrl" *ngFor="let imgUrl of data.images" alt="" (click)="previewImg.src = imgUrl">
+  <img class="button-list__button" [src]="data.srcDefaultImage" alt="" (click)="previewImg.src = data.srcDefaultImage">
+  <img class="button-list__button" [src]="imgUrl" *ngFor="let imgUrl of data.srcImages" alt="" (click)="previewImg.src = imgUrl">
 </div>
 

@@ -13,14 +13,22 @@ export class Product {
   public readonly price: number;
   public readonly discount: number;
 
+  // Calculated
+  public readonly srcDefaultImage: string;
+  public readonly srcImages: string[];
+
   constructor(data?: Partial<Product>) {
     this.id = data?.id ?? 0;
     this.name = data?.name ?? '';
     this.description = data?.description ?? '';
-    this.defaultImage = makeUrl(data?.defaultImage, this.id, 'default');
-    this.images = data?.images?.map((url, idx) => makeUrl(url, this.id, idx)) ?? [];
+    this.defaultImage = data?.defaultImage ?? '';
+    this.images = data?.images ?? [];
     this.price = data?.price ?? 0;
     this.discount = data?.discount ?? 0;
+
+    // Calculated
+    this.srcDefaultImage = makeUrl(data?.defaultImage, this.id, 'default');
+    this.srcImages = data?.images?.map((url, idx) => makeUrl(url, this.id, idx)) ?? [];
   }
 
   public calculatePrice(quantity: number = 1): Price {

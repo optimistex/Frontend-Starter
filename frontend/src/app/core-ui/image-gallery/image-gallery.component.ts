@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '@fe-core/models/product';
 
-type ImageGalleryData = Pick<Product, 'defaultImage' | 'images'>;
+type ImageGalleryData = Pick<Product, 'srcDefaultImage' | 'srcImages'>;
 
 @Component({
   selector: 'app-image-gallery[data]',
