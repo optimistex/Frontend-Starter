@@ -27,7 +27,7 @@ describe('ApiService', () => {
   let notificationService: jasmine.SpyObj<NotificationService>;
   const matchUri = (uri: string) => (req: HttpRequest<unknown>) => req.url.endsWith(uri);
   const expectedApiLinkKey: keyof ApiLinks = 'productListApi';
-  const expectedUri = '/api/legal-document/create';
+  const expectedUri = '/products';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

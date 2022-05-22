@@ -1,5 +1,8 @@
+import { MockProvider, MockComponents } from 'ng-mocks';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PaginatorComponent } from '@fe-core-ui/paginator/paginator.component';
+import { ProductService } from '@fe-feature-api/product/services/product.service';
 import { ShowcaseComponent } from './showcase.component';
 
 describe('ShowcaseComponent', () => {
@@ -8,9 +11,10 @@ describe('ShowcaseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowcaseComponent ],
-    })
-      .compileComponents();
+      imports: [FormsModule, ReactiveFormsModule],
+      providers: [MockProvider(ProductService)],
+      declarations: [ShowcaseComponent, MockComponents(PaginatorComponent)],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,5 +1,10 @@
+import { MockProviders } from 'ng-mocks';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Product } from '@fe-core/models/product';
+import { NotificationService } from '@fe-core/services/notification/notification.service';
+import { ProductService } from '@fe-feature-api/product/services/product.service';
 import { ProductFormComponent } from './product-form.component';
 
 describe('ProductFormComponent', () => {
@@ -8,6 +13,8 @@ describe('ProductFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule, FormsModule, ReactiveFormsModule],
+      providers: [MockProviders(ProductService, NotificationService)],
       declarations: [ProductFormComponent],
     }).compileComponents();
   });
@@ -15,6 +22,7 @@ describe('ProductFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductFormComponent);
     component = fixture.componentInstance;
+    component.product = new Product();
     fixture.detectChanges();
   });
 

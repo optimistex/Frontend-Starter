@@ -11,81 +11,50 @@ describe('SessionService', () => {
   let userSession: UserSession;
   const userSessionCallback: (data: UserSession) => void = data => userSession = data;
 
-  it('should be created when localStorage is empty', () => {
-    // For non existing key localStorage retrieves null (!)
+  it('should be created when sessionStorage is empty', () => {
+    // For non existing key sessionStorage retrieves null (!)
     // eslint-disable-next-line no-null/no-null
-    spyOn(localStorage, 'getItem').and.returnValue(null);
+    spyOn(sessionStorage, 'getItem').and.returnValue(null);
     const service = createSessionService();
     service.userSession$.subscribe(userSessionCallback);
 
-    expect(localStorage.getItem).toHaveBeenCalledTimes(1);
+    expect(sessionStorage.getItem).toHaveBeenCalledTimes(1);
     expect(userSession).toBeInstanceOf(UserSession);
-    expect(userSession.id).toBeUndefined();
+    expect(userSession.id).toBe(0);
   });
 
-  // it('should be created when localStorage has data', () => {
-  //   spyOn(localStorage, 'getItem').and.returnValue('{"token":"test"}');
-  //   const service = createSessionService();
-  //   service.userSession$.subscribe(userSessionCallback);
-  //
-  //   expect(localStorage.getItem).toHaveBeenCalledTimes(1);
-  //   expect(userSession).toBeInstanceOf(UserSession);
-  //   expect(userSession.id).toBe('test');
-  // });
-  //
-  // it('should set new session data', () => {
-  //   spyOn(localStorage, 'setItem');
-  //   const service = createSessionService();
-  //   service.setUserSession(new UserSession({ token: 'newToken' }));
-  //   service.userSession$.subscribe(userSessionCallback);
-  //
-  //   expect(userSession.id).toBe('newToken');
-  //   expect(localStorage.setItem).toHaveBeenCalledTimes(1);
-  //   expect(localStorage.setItem).toHaveBeenCalledWith('lisa.core.rbac.auth', JSON.stringify({
-  //     token: 'newToken', group: '', groupTitle: '', firstName: '', middleName: '', lastName: '', roles: [], permissions: [], areas: [], username: '',
-  //   }));
-  // });
-  //
-  // it('should clear session', () => {
-  //   spyOn(localStorage, 'getItem').and.returnValue('{"token":"test"}');
-  //   spyOn(localStorage, 'removeItem');
-  //   const service = createSessionService();
-  //   service.clearUserSession();
-  //   service.userSession$.subscribe(userSessionCallback);
-  //
-  //   expect(userSession.id).toBeUndefined();
-  //   expect(localStorage.removeItem).toHaveBeenCalledTimes(1);
-  //   expect(localStorage.removeItem).toHaveBeenCalledWith('lisa.core.rbac.auth');
-  // });
-  //
-  // describe('SessionService.userCan', () => {
-  //   let spySubscription: jasmine.Spy;
-  //
-  //   beforeEach(() => {
-  //     spySubscription = jasmine.createSpy('spySubscription');
-  //   });
-  //
-  //   it('should return true', () => {
-  //     const service = createSessionService();
-  //     service.setUserSession(mock<UserSession>({ can: jasmine.createSpy().and.returnValue(true) }));
-  //     service.userCan('test').subscribe(spySubscription);
-  //
-  //     expect(spySubscription).toHaveBeenCalledOnceWith(true);
-  //   });
-  //
-  //   it('should return false - when no permissions', () => {
-  //     const service = createSessionService();
-  //     service.setUserSession(mock<UserSession>({ can: jasmine.createSpy().and.returnValue(false) }));
-  //     service.userCan('test').subscribe(spySubscription);
-  //
-  //     expect(spySubscription).toHaveBeenCalledOnceWith(false);
-  //   });
-  //
-  //   it('should return false - when no session data', () => {
-  //     const service = createSessionService();
-  //     service.userCan('test').subscribe(spySubscription);
-  //
-  //     expect(spySubscription).toHaveBeenCalledOnceWith(false);
-  //   });
-  // });
+  it('should be created when sessionStorage has data', () => {
+    spyOn(sessionStorage, 'getItem').and.returnValue('{"id":10}');
+    const service = createSessionService();
+    service.userSession$.subscribe(userSessionCallback);
+
+    expect(sessionStorage.getItem).toHaveBeenCalledTimes(1);
+    expect(userSession).toBeInstanceOf(UserSession);
+    expect(userSession.id).toBe(10);
+  });
+
+  it('should set new session data', () => {
+    spyOn(sessionStorage, 'setItem');
+    const service = createSessionService();
+    service.setUserSession(new UserSession({ id: 15 }));
+    service.userSession$.subscribe(userSessionCallback);
+
+    expect(userSession.id).toBe(15);
+    expect(sessionStorage.setItem).toHaveBeenCalledTimes(1);
+    expect(sessionStorage.setItem).toHaveBeenCalledWith('auth', JSON.stringify({
+      id: 15, name: { firstName: 'Guest', lastName: '' }, address: { country: '', city: '', zip: '', street: '' }, phone: '', avatar: '', email: '',
+      role: 'GUEST', orders: [],
+    }));
+  });
+
+  it('should clear session', () => {
+    spyOn(sessionStorage, 'getItem').and.returnValue('{"token":"test"}');
+    spyOn(sessionStorage, 'removeItem');
+    const service = createSessionService();
+    service.clearUserSession();
+    service.userSession$.subscribe(userSessionCallback);
+
+    expect(userSession.id).toBe(0);
+    expect(sessionStorage.removeItem).toHaveBeenCalledOnceWith('auth');
+  });
 });

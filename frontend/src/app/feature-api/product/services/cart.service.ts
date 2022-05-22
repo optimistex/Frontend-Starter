@@ -2,11 +2,10 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ApiService } from '@fe-core/services/api/api.service';
 import { CartRaw } from '@fe-core/models/cart-raw';
-import { ProductService } from './product.service';
 
 @Injectable()
 export class CartService {
-  constructor(private apiService: ApiService, private productService: ProductService) {
+  constructor(private apiService: ApiService) {
   }
 
   public getUserCartRaw(userId: number): Observable<CartRaw> {

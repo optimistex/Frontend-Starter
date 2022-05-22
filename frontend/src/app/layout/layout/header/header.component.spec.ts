@@ -1,5 +1,6 @@
+import { MockComponent } from 'ng-mocks';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { UserMenuComponent } from '@fe-feature-ui/user-menu/user-menu/user-menu.component';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -8,7 +9,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
+      declarations: [HeaderComponent, MockComponent(UserMenuComponent)],
     }).compileComponents();
   });
 

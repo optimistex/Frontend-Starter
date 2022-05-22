@@ -1,5 +1,6 @@
 import { MockProvider, MockComponents } from 'ng-mocks';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Product } from '@fe-core/models/product';
 import { PriceComponent } from '@fe-core-ui/price/price.component';
 import { HighlightComponent } from '@fe-core-ui/highlight/highlight/highlight.component';
@@ -13,6 +14,7 @@ describe('ProductItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[RouterTestingModule],
       providers: [MockProvider(CartDataService)],
       declarations: [ProductItemComponent, MockComponents(PriceComponent, HighlightComponent, CartButtonAddComponent)],
     }).compileComponents();
