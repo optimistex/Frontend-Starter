@@ -1,4 +1,7 @@
 <app-back-button route="../.."></app-back-button>
 <ng-template #loadingMsg>Loading...</ng-template>
-<app-product-form [product]="product" *ngIf="product$ | async as product; else loadingMsg"></app-product-form>
+<div *ngIf="product$ | async as product; else loadingMsg">
+  <h1>{{ product.id ? 'Edit: ' : 'Create: new' }}{{ product.name }}</h1>
+  <app-product-form [product]="product"></app-product-form>
+</div>
 
