@@ -1,0 +1,6 @@
+<label *ngFor="let control of formArrayControls; index as idx">
+  <span>{{ label }} #{{ idx + 1 }}</span>
+  <input type="text" [formControl]="control" [placeholder]="placeholder">
+  <button type="button" (click)="addFormControl(idx + 1)">add</button>
+  <button type="button" (click)="removeFormControl(idx)" *ngIf="formArray.length > 1">remove</button>
+</label>
