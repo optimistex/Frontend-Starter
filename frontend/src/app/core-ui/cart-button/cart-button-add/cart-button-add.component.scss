@@ -1,0 +1,16 @@
+:host, .button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.button {
+  cursor: pointer;
+  opacity: .7;
+  transition-duration: 0.5s;
+
+  &:hover {
+    opacity: 1;
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}

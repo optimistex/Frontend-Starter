@@ -6,6 +6,6 @@
     <app-price [data]="cartItem.product.calculatePrice(cartItem.quantity)"></app-price>
   </div>
   <div class="cart-item__remove" title="Delete">
-    <img src="/assets/icons/trash.svg" alt="Delete" (click)="$event.stopPropagation(); cartDataService.deleteCartProduct(cartItem.product.id)">
+    <app-cart-button-delete (click)="cartDataService.deleteCartProduct(cartItem.product.id)"></app-cart-button-delete>
   </div>
 </div>

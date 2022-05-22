@@ -3,8 +3,7 @@
     <img [src]="product.defaultImage" [alt]="product.name">
   </div>
   <div class="product__info">
-    <img class="product__info-action" src="/assets/icons/shopping-cart-add.svg" alt="Add"
-         (click)="$event.stopPropagation(); cartDataService.addToCart(product.id)">
+    <app-cart-button-add class="product__info-action" (click)="cartDataService.addToCart(product.id)"></app-cart-button-add>
     <div>
       <app-price class="product__price" [data]="product.calculatePrice()"></app-price>
       <app-highlight [text]="product.name" [search]="search"></app-highlight>

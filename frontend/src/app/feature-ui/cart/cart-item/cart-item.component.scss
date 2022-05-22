@@ -13,19 +13,6 @@
   }
 
   &__remove {
-    cursor: pointer;
-
-    & img {
-      opacity: 0.7;
-      width: 1rem;
-      height: 1rem;
-      transition-duration: 0.5s;
-    }
-
-    &:hover img {
-      opacity: 1;
-      transform: rotate3d(0, 1, 0, 360deg);
-    }
   }
 }
 

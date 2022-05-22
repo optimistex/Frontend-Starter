@@ -20,3 +20,12 @@
     margin-left: 1rem;
   }
 }
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+app-cart-button-add {
+  margin-right: 1rem;
+}

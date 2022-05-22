@@ -4,6 +4,9 @@
   <div class="product-details__info">
     <h1>{{ product.name }}</h1>
     <p>{{ product.description }}</p>
-    <app-price [data]="product.calculatePrice()"></app-price>
+    <div class="actions">
+      <app-cart-button-add (click)="cartDataService.addToCart(product.id)"></app-cart-button-add>
+      <app-price [data]="product.calculatePrice()"></app-price>
+    </div>
   </div>
 </div>
