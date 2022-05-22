@@ -29,3 +29,22 @@
 app-cart-button-add {
   margin-right: 1rem;
 }
+
+.recommended {
+  padding: 1rem;
+
+  &__title {
+    margin: .3rem 0;
+  }
+
+  &__list {
+    display: flex;
+    align-items: stretch;
+    position: relative;
+  }
+
+  &__list-item {
+    max-width: 8%;
+    margin: 0 .1rem;
+  }
+}

@@ -1,8 +1,13 @@
+:host {
+  position: relative;
+}
+
 .product {
   padding: 0.5rem;
   border: var(--separate-line);
   border-radius: var(--separate-line-radius);
   cursor: pointer;
+  min-height: 100%;
 
   &:hover {
     background: var(--highlight-item-bg);
@@ -16,7 +21,7 @@
     & img {
       display: block;
       width: var(--product-item-width);
-      height: calc(var(--product-item-width) * 480 / 640);
+      max-width: 100%;
       margin-bottom: 0.5rem;
     }
   }
@@ -26,11 +31,16 @@
     align-items: center;
   }
 
+  &__info, &__info-title {
+    max-width: 100%;
+  }
+
   &__info-action {
     margin-right: 1rem;
   }
 
   &__price {
-    display: block;
+    display: inline-flex;
+    flex-wrap: wrap;
   }
 }

@@ -3,8 +3,8 @@
     <img [src]="product.defaultImage" [alt]="product.name">
   </div>
   <div class="product__info">
-    <app-cart-button-add class="product__info-action" (click)="cartDataService.addToCart(product.id)"></app-cart-button-add>
-    <div>
+    <app-cart-button-add *ngIf="showCartButton" class="product__info-action" (click)="cartDataService.addToCart(product.id)"></app-cart-button-add>
+    <div class="product__info-title">
       <app-price class="product__price" [data]="product.calculatePrice()"></app-price>
       <app-highlight [text]="product.name" [search]="search"></app-highlight>
     </div>

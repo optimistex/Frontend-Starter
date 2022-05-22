@@ -1,8 +1,7 @@
 <!-- The actual template -->
 <div class="cart-item" [routerLink]="['/product', cartItem.product.id]">
   <div class="cart-item__info">
-    {{ cartItem.product.name }}
-    {{ cartItem.quantity }}
+    {{ cartItem.product.name }} - {{ cartItem.quantity }}
     <app-price [data]="cartItem.product.calculatePrice(cartItem.quantity)"></app-price>
   </div>
   <div class="cart-item__remove" title="Delete">

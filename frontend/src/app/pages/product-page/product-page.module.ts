@@ -4,11 +4,12 @@ import { ImageGalleryModule } from '@fe-core-ui/image-gallery/image-gallery.modu
 import { PriceModule } from '@fe-core-ui/price/price.module';
 import { CartButtonModule } from '@fe-core-ui/cart-button/cart-button.module';
 import { ProductModule } from '@fe-feature-api/product/product.module';
+import { ProductItemModule } from '@fe-feature-ui/product-item/product-item.module';
 import { ProductPageRoutingModule } from './product-page-routing.module';
 import { ProductPageComponent } from './product-page.component';
 
 @NgModule({
-  imports: [CommonModule, ProductPageRoutingModule, ImageGalleryModule, PriceModule, CartButtonModule, ProductModule],
+  imports: [CommonModule, ProductPageRoutingModule, ImageGalleryModule, PriceModule, CartButtonModule, ProductModule, ProductItemModule],
   declarations: [ProductPageComponent],
 })
 export class ProductPageModule {

@@ -9,6 +9,7 @@ import { CartDataService } from '@fe-feature-api/product/services/cart-data.serv
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductItemComponent {
+  @Input() public showCartButton = true;
   @Input() public product!: Product;
   @Input() public search = '';
 

@@ -1,4 +1,4 @@
-import { Observable, map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ApiService } from '@fe-core/services/api/api.service';
 import { Product } from '@fe-core/models/product';
@@ -19,5 +19,9 @@ export class ProductService {
       ...(parameters.id ? { id: parameters.id } : {}),
       ...(parameters.search ? { q: parameters.search } : {}),
     }).pipe(map(response => response.map(r => new Product(r))));
+  }
+
+  public getRecommendedList(): Observable<Product[]> {
+    return this.apiService.get<Product[]>('productRecommendedListApi').pipe(map(response => response.map(r => new Product(r))));
   }
 }
