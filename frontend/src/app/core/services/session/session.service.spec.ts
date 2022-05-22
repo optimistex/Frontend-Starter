@@ -13,7 +13,6 @@ describe('SessionService', () => {
 
   it('should be created when sessionStorage is empty', () => {
     // For non existing key sessionStorage retrieves null (!)
-    // eslint-disable-next-line no-null/no-null
     spyOn(sessionStorage, 'getItem').and.returnValue(null);
     const service = createSessionService();
     service.userSession$.subscribe(userSessionCallback);

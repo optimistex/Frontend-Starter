@@ -25,7 +25,6 @@
       "plugins": [
         "@typescript-eslint/eslint-plugin",
         "eslint-plugin-deprecation",
-        "eslint-plugin-no-null",
         "jasmine"
       ],
       "rules": {
@@ -129,7 +128,6 @@
             "max": 2
           }
         ],
-        "no-null/no-null": "error",
         "no-template-curly-in-string": "error",
         "prefer-const": [
           "error",
@@ -195,7 +193,10 @@
           2,
           {
             "SwitchCase": 1,
-            "ignoredNodes": ["TSTypeParameterInstantiation", "TSUnionType"],
+            "ignoredNodes": [
+              "TSTypeParameterInstantiation",
+              "TSUnionType"
+            ],
             "FunctionDeclaration": {
               "parameters": "first"
             },
