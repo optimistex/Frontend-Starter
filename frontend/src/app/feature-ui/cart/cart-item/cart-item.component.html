@@ -1,11 +1,11 @@
 <!-- The actual template -->
-<div class="cart-item">
+<div class="cart-item" [routerLink]="['/product', cartItem.product.id]">
   <div class="cart-item__info">
     {{ cartItem.product.name }}
     {{ cartItem.quantity }}
     <app-price [data]="cartItem.product.calculatePrice(cartItem.quantity)"></app-price>
   </div>
   <div class="cart-item__remove" title="Delete">
-    <img src="/assets/icons/trash.svg" alt="Delete" (click)="cartDataService.deleteCartProduct(cartItem.product.id)">
+    <img src="/assets/icons/trash.svg" alt="Delete" (click)="$event.stopPropagation(); cartDataService.deleteCartProduct(cartItem.product.id)">
   </div>
 </div>

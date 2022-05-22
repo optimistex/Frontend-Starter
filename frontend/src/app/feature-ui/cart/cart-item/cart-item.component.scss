@@ -1,6 +1,12 @@
 .cart-item {
   display: flex;
   align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--highlight-item-bg);
+    color: var(--highlight-item-txt);
+  }
 
   &__info {
     flex-grow: 1;
@@ -13,10 +19,12 @@
       opacity: 0.7;
       width: 1rem;
       height: 1rem;
+      transition-duration: 0.5s;
     }
 
     &:hover img {
       opacity: 1;
+      transform: rotate3d(0, 1, 0, 360deg);
     }
   }
 }
