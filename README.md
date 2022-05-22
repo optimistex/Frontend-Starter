@@ -1,10 +1,45 @@
 # Starter pack for assessment
 
+# Get Started
+
+Run backend:
+
+```bash
+cd backend 
+npm i 
+npm start 
+```
+
+Run frontend:
+
+```bash
+cd frontend 
+npm i 
+npm start 
+```
+
+Run frontend linter:
+
+```bash
+cd frontend 
+npm run lint 
+```
+
+Run frontend tests:
+
+```bash
+cd frontend 
+npm run test:headless 
+```
+
 # Pay attention
 
 - Unit tests. See in `https://m.media-amazon.com/images/I/61Lqyml1z7L._AC_SL1001_.jpg`
 - Guards (access control). When you are not admin visit directly: http://localhost:4200/manage/4
-- Search highlight. Search somthing ans see yellow highlight.
+- Search highlight. Search something and see yellow highlight.
+- When logged in as an admin:
+  - Add product - see an option in user menu
+  - Edit product - see the button "edit" on a product page
 
 ## Description
 
