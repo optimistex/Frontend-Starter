@@ -1,11 +1,18 @@
 <div class="user-menu" *ngIf="sessionService.userSession$ | async as user">
-  Hello, {{ user.name.firstName }} &blacktriangledown;
+  <div class="user-menu__hello">
+    <div class="user-menu__hello-details">
+      Hello, {{ user.name.firstName }}
+      <div class="user-menu__is-admin" *ngIf="user.isAdmin">admin</div>
+    </div>
+    &blacktriangledown;
+  </div>
   <ul class="user-menu__options">
     <ng-container *ngIf="!user.isLoggedIn">
       <li *ngFor="let proposeUser of proposeUserList$ | async" (click)="loginAs(proposeUser)">
         Login as {{ proposeUser.name.firstName }} <b *ngIf="proposeUser.isAdmin">(admin)</b>
       </li>
     </ng-container>
+    <li *ngIf="user.isAdmin" routerLink="/manage/new">Add product</li>
     <li *ngIf="user.isLoggedIn" (click)="logout()">Logout</li>
   </ul>
 </div>

@@ -1,4 +1,4 @@
-<div class="back-to-showcase" routerLink="/"><< Back to Showcase</div>
+<app-back-button route="../.."></app-back-button>
 <div class="product-details" *ngIf="product$ | async as product">
   <app-image-gallery class="product-details__gallery" [data]="product"></app-image-gallery>
   <div class="product-details__info">

@@ -1,17 +1,8 @@
-.back-to-showcase {
-  cursor: pointer;
-  margin: 0 1rem;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .product-details {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--product-item-cell-width), 1fr));
   padding: 1rem;
-  flex-wrap: wrap;
 
   &__gallery {
 

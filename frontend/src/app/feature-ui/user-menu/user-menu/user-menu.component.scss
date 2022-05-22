@@ -9,6 +9,21 @@
   padding: 1rem;
   position: relative;
 
+  &__hello {
+    display: flex;
+    align-items: center;
+  }
+
+  &__hello-details {
+    margin-right: .5rem;
+  }
+
+  &__is-admin {
+    font-size: .8rem;
+    color: red;
+    text-align: right;
+  }
+
   &__options {
     display: none;
     position: absolute;

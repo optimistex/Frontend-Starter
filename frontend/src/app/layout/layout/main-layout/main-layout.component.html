@@ -1,15 +1,10 @@
-<div class="header">
-  <div class="header__title">
-    Smart Hardware Shop
-  </div>
-  <app-user-menu></app-user-menu>
-</div>
+<app-header></app-header>
 <div class="page">
   <div class="page__content">
     <router-outlet></router-outlet>
   </div>
   <div class="page__side-bar">
-    <app-cart></app-cart>
+    <router-outlet name="side-bar-outlet"></router-outlet>
   </div>
 </div>
 <div class="pre-footer">
