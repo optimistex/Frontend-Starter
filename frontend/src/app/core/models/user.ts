@@ -1,4 +1,4 @@
-import { ProductItemRaw } from '@fe-core/services/models/product-item-raw';
+import { ProductItemRaw } from '@fe-core/models/product-item-raw';
 
 interface UserOrderRaw {
   /** Order ID */

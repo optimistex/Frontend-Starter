@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SessionService } from '@fe-core/services/session/session.service';
 import { UserSession } from '@fe-core/services/session/user-session';
-import { User } from '@fe-core/services/models/user';
+import { User } from '@fe-core/models/user';
 import { UserService } from '@fe-feature-api/user/user.service';
 
 @Component({

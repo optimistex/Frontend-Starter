@@ -1,6 +1,6 @@
 import { map, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { User } from '@fe-core/services/models/user';
+import { User } from '@fe-core/models/user';
 import { ApiService } from '@fe-core/services/api/api.service';
 
 @Injectable()

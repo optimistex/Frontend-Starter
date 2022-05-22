@@ -1,7 +1,7 @@
 import { map, Observable, filter, switchMap } from 'rxjs';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '@fe-feature-api/product/models/product';
+import { Product } from '@fe-core/models/product';
 import { ProductService } from '@fe-feature-api/product/services/product.service';
 
 @Component({

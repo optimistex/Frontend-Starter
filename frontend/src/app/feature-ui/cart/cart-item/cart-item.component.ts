@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { CartItem } from '@fe-feature-api/product/models/cart-item';
+import { CartItem } from '@fe-core/models/cart-item';
 import { CartDataService } from '@fe-feature-api/product/services/cart-data.service';
 
 @Component({

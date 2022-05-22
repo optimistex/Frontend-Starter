@@ -1,4 +1,4 @@
-import { User } from '@fe-core/services/models/user';
+import { User } from '@fe-core/models/user';
 
 export class UserSession extends User {
   constructor(data?: Partial<User>) {

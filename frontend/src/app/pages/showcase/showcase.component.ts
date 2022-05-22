@@ -1,7 +1,7 @@
 import { Observable, BehaviorSubject, startWith, debounceTime, combineLatest, switchMap, map } from 'rxjs';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Product } from '@fe-feature-api/product/models/product';
+import { Product } from '@fe-core/models/product';
 import { ProductService } from '@fe-feature-api/product/services/product.service';
 
 @Component({

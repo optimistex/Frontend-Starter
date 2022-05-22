@@ -1,8 +1,8 @@
 import { map, Observable, of, shareReplay, switchMap, zip, Subject, withLatestFrom, EMPTY, merge } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { SessionService } from '@fe-core/services/session/session.service';
-import { ProductItemRaw } from '@fe-core/services/models/product-item-raw';
-import { CartItem } from '@fe-feature-api/product/models/cart-item';
+import { ProductItemRaw } from '@fe-core/models/product-item-raw';
+import { CartItem } from '@fe-core/models/cart-item';
 import { CartService } from '@fe-feature-api/product/services/cart.service';
 import { ProductService } from '@fe-feature-api/product/services/product.service';
 

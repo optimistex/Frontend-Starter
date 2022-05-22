@@ -1,7 +1,7 @@
 import { map, Observable } from 'rxjs';
 import { Component } from '@angular/core';
 import { Price } from '@fe-core-ui/price/price';
-import { CartItem } from '@fe-feature-api/product/models/cart-item';
+import { CartItem } from '@fe-core/models/cart-item';
 import { CartDataService } from '@fe-feature-api/product/services/cart-data.service';
 
 @Component({

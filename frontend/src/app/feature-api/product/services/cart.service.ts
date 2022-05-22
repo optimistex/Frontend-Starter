@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ApiService } from '@fe-core/services/api/api.service';
-import { CartRaw } from '../models/cart-raw';
+import { CartRaw } from '@fe-core/models/cart-raw';
 import { ProductService } from './product.service';
 
 @Injectable()
