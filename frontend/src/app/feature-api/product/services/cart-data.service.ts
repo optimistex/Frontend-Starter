@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { SessionService } from '@fe-core/services/session/session.service';
 import { ProductItemRaw } from '@fe-core/models/product-item-raw';
 import { CartItem } from '@fe-core/models/cart-item';
+import { NotificationService } from '@fe-core/services/notification/notification.service';
 import { CartService } from '@fe-feature-api/product/services/cart.service';
 import { ProductService } from '@fe-feature-api/product/services/product.service';
 
@@ -12,7 +13,7 @@ export class CartDataService {
   private deleteProductId$ = new Subject<number>();
   private addProduct$ = new Subject<ProductItemRaw>();
 
-  constructor(cartService: CartService, sessionService: SessionService, productService: ProductService) {
+  constructor(cartService: CartService, sessionService: SessionService, productService: ProductService, notificationService: NotificationService) {
     const cartRawOnLoad$ = sessionService.userSession$.pipe(
       switchMap(userSession => (userSession.isLoggedIn ? cartService.getUserCartRaw(userSession.id) : of(undefined))),
       shareReplay(1)
@@ -30,8 +31,11 @@ export class CartDataService {
     );
 
     const cartRawOnAdd$ = this.addProduct$.pipe(
-      withLatestFrom(cartRawOnLoad$),
-      switchMap(([product, cartRaw]) => {
+      withLatestFrom(cartRawOnLoad$, sessionService.userSession$),
+      switchMap(([product, cartRaw, userSession]) => {
+        if (!userSession.isLoggedIn) {
+          notificationService.warn('Please log in before shopping');
+        }
         if (!cartRaw) {
           return EMPTY;
         }
