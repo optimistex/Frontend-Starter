@@ -15,6 +15,7 @@ describe('ImageGalleryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ImageGalleryComponent);
     component = fixture.componentInstance;
+    component.data = { defaultImage: '', images: [] };
     fixture.detectChanges();
   });
 

@@ -1,5 +1,6 @@
+import { MockProvider } from 'ng-mocks';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CartDataService } from '@fe-feature-api/product/services/cart-data.service';
 import { ProductItemComponent } from './product-item.component';
 
 describe('ProductItemComponent', () => {
@@ -8,6 +9,7 @@ describe('ProductItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [MockProvider(CartDataService)],
       declarations: [ProductItemComponent],
     }).compileComponents();
   });
