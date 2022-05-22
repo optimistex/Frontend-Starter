@@ -23,5 +23,10 @@
   &__side-bar {
     flex-shrink: 0;
     width: 300px;
+    max-width: 30vw;
   }
+}
+
+.pre-footer {
+  margin-bottom: 1rem;
 }

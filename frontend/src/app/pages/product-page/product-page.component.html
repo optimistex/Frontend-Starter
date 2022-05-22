@@ -10,10 +10,3 @@
     </div>
   </div>
 </div>
-<div class="recommended">
-  <h3 class="recommended__title">Recommendations</h3>
-  <div class="recommended__list">
-    <app-product-item class="recommended__list-item" *ngFor="let recommended of recommended$ | async"
-                      [showCartButton]="false" [product]="recommended"></app-product-item>
-  </div>
-</div>

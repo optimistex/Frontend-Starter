@@ -12,7 +12,6 @@ import { CartDataService } from '@fe-feature-api/product/services/cart-data.serv
 })
 export class ProductPageComponent {
   public product$: Observable<Product>;
-  public recommended$: Observable<Product[]>;
 
   constructor(route: ActivatedRoute, productService: ProductService, public cartDataService: CartDataService) {
     this.product$ = route.paramMap.pipe(
@@ -21,6 +20,5 @@ export class ProductPageComponent {
       switchMap(productId => productService.getItem(productId))
     );
 
-    this.recommended$ = productService.getRecommendedList();
   }
 }

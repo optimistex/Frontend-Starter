@@ -7,10 +7,11 @@ import { ProductModule } from '@fe-feature-api/product/product.module';
 import { ProductItemModule } from '@fe-feature-ui/product-item/product-item.module';
 import { ProductPageRoutingModule } from './product-page-routing.module';
 import { ProductPageComponent } from './product-page.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 @NgModule({
   imports: [CommonModule, ProductPageRoutingModule, ImageGalleryModule, PriceModule, CartButtonModule, ProductModule, ProductItemModule],
-  declarations: [ProductPageComponent],
+  declarations: [ProductPageComponent, RecommendationsComponent],
 })
 export class ProductPageModule {
 }
