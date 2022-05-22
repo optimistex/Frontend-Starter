@@ -21,8 +21,10 @@ export class ApiService {
     return this.httpClient.post<T>(url.fillFromObject(uriParameters), postData).pipe(this.rxHandleHttpError());
   }
 
-  public put<T>(urlKey: keyof ApiLinks, postData: unknown): Observable<T> {
-    return this.httpClient.put<T>(environment.hostApi + this.apiLinks[urlKey], postData).pipe(this.rxHandleHttpError());
+  public put<T>(urlKey: keyof ApiLinks | [keyof ApiLinks, Record<string, string>], postData: unknown): Observable<T> {
+    const url: utpl.URITemplate = utpl(environment.hostApi + (Array.isArray(urlKey) ? this.apiLinks[urlKey[0]] : this.apiLinks[urlKey]));
+    const urlStr = Array.isArray(urlKey) ? url.fill(urlKey[1]) : url.fillFromObject({});
+    return this.httpClient.put<T>(urlStr, postData).pipe(this.rxHandleHttpError());
   }
 
   public get<T>(urlKey: keyof ApiLinks | [keyof ApiLinks, Record<string, string>], params?: BuildParams): Observable<T> {

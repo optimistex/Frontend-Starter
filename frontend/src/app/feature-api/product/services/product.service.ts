@@ -8,6 +8,14 @@ export class ProductService {
   constructor(private apiService: ApiService) {
   }
 
+  public create(product: Product): Observable<Product> {
+    return this.apiService.post<Product>('productItemApi', product).pipe(map(response => new Product(response)));
+  }
+
+  public update(product: Product): Observable<Product> {
+    return this.apiService.put<Product>(['productItemApi', { productId: String(product.id) }], product).pipe(map(response => new Product(response)));
+  }
+
   public getItem(productId: number): Observable<Product> {
     return this.apiService.get<Product>(['productItemApi', { productId: String(productId) }]).pipe(map(response => new Product(response)));
   }

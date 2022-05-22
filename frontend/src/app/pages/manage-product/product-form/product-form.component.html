@@ -1,0 +1,34 @@
+<form [formGroup]="formGroup" (submit)="saveData()">
+
+  <label>
+    Name
+    <input type="text" formControlName="name">
+  </label>
+
+  <label>
+    Description
+    <textarea formControlName="description"></textarea>
+  </label>
+
+  <label>
+    Default image
+    <input type="text" formControlName="defaultImage">
+  </label>
+
+  <!--  <label>-->
+  <!--    Images-->
+  <!--    <input type="text" formControlName="images">-->
+  <!--  </label>-->
+
+  <label>
+    Price
+    <input type="text" formControlName="price">
+  </label>
+
+  <label>
+    Discount
+    <input type="text" formControlName="discount">
+  </label>
+
+  <button type="submit">Save</button>
+</form>

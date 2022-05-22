@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ManageProductComponent } from './manage-product.component';
 
 const routes: Routes = [
-  { path: 'new', component: ManageProductComponent },
-  { path: ':productId', component: ManageProductComponent },
+  { path: 'new', component: ManageProductComponent, data: { action: 'create' } },
+  { path: ':productId', component: ManageProductComponent, data: { action: 'edit' } },
 ];
 
 @NgModule({

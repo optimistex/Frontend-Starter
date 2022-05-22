@@ -1,2 +1,4 @@
 <app-back-button route="../.."></app-back-button>
-<p>manage-product works!</p>
+<ng-template #loadingMsg>Loading...</ng-template>
+<app-product-form [product]="product" *ngIf="product$ | async as product; else loadingMsg"></app-product-form>
+

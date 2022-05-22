@@ -1,0 +1,17 @@
+label, input, textarea {
+  font-size: 1rem;
+  display: block;
+  width: 100%;
+}
+
+label {
+  margin: 2rem 1rem 1rem;
+}
+
+input, textarea {
+  margin-top: .3rem;
+}
+
+button[type=submit] {
+  font-size: 2rem;
+}

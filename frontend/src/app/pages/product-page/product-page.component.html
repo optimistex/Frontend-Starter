@@ -2,7 +2,10 @@
 <div class="product-details" *ngIf="product$ | async as product">
   <app-image-gallery class="product-details__gallery" [data]="product"></app-image-gallery>
   <div class="product-details__info">
-    <h1>{{ product.name }}</h1>
+    <h1>
+      {{ product.name }}
+      <button *ngIf="isAdmin$ | async" [routerLink]="['/manage', product.id]">Edit</button>
+    </h1>
     <p>{{ product.description }}</p>
     <div class="actions">
       <app-cart-button-add (click)="cartDataService.addToCart(product.id)"></app-cart-button-add>
