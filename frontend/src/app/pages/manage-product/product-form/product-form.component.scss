@@ -1,15 +1,31 @@
+:host {
+  display: block;
+  padding: 1rem;
+}
+
 label, input, textarea {
   font-size: 1rem;
   display: block;
   width: 100%;
+  box-sizing: border-box;
 }
 
 label {
-  margin: 2rem 1rem 1rem;
+  margin: 2rem 0 1rem;
 }
 
 input, textarea {
   margin-top: .3rem;
+  border-width: 1px;
+  border-style: solid;
+}
+
+input.ng-invalid, textarea.ng-invalid {
+  background: #ff998a;
+}
+
+input.ng-touched, textarea.ng-touched {
+  border-color: #1687f3;
 }
 
 button[type=submit] {

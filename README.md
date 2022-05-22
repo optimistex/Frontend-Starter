@@ -34,12 +34,13 @@ npm run test:headless
 
 # Pay attention
 
-- Unit tests. See in `https://m.media-amazon.com/images/I/61Lqyml1z7L._AC_SL1001_.jpg`
+- Unit tests. See in `frontend/src/app/core/services`
 - Guards (access control). When you are not admin visit directly: http://localhost:4200/manage/4
 - Search highlight. Search something and see yellow highlight.
 - When logged in as an admin:
   - Add product - see an option in user menu
   - Edit product - see the button "edit" on a product page
+- Validation added for the "Discount" field
 
 ## Description
 
