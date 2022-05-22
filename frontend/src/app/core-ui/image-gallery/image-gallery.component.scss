@@ -1,0 +1,23 @@
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+.image-view {
+  max-width: 100%;
+}
+
+.button-list {
+  display: flex;
+
+  &__button {
+    width: 15%;
+    max-width: 5rem;
+    margin: 0 0.2rem;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 5px 0;
+    }
+  }
+}

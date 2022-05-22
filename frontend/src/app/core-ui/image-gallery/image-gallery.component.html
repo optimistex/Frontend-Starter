@@ -1,1 +1,6 @@
-<p>image-gallery works!</p>
+<img #previewImg class="image-view" [src]="data.defaultImage" alt="Default image">
+<div class="button-list">
+  <img class="button-list__button" [src]="data.defaultImage" alt="" (click)="previewImg.src = data.defaultImage">
+  <img class="button-list__button" [src]="imgUrl" *ngFor="let imgUrl of data.images" alt="" (click)="previewImg.src = imgUrl">
+</div>
+

@@ -1,5 +1,9 @@
 <div class="back-to-showcase" routerLink="/"><< Back to Showcase</div>
-<div *ngIf="product$ | async as product">
-  <img [src]="product.defaultImage" alt="Default image">
-  {{ product.name }}
+<div class="product-details" *ngIf="product$ | async as product">
+  <app-image-gallery class="product-details__gallery" [data]="product"></app-image-gallery>
+  <div class="product-details__info">
+    <h1>{{ product.name }}</h1>
+    <p>{{ product.description }}</p>
+    <app-price [data]="product.calculatePrice()"></app-price>
+  </div>
 </div>
